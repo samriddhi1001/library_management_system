@@ -1,11 +1,7 @@
-import mysql.connector as ctr
-mycon=ctr.connect(host="localhost",user="root",password="Risa@1010",database="lms")
-if mycon.is_connected()==False:
-    print("Not connected")
-mycur=mycon.cursor()
+from database import get_connection
 
-    
 def modify():
+    mycon, mycur = get_connection()
     print(" MODIFY")
     print("\t1. Modify student details")
     print("\t2. Modify teacher details ")

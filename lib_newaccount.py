@@ -1,10 +1,7 @@
-import mysql.connector as ctr
-mycon=ctr.connect(host="localhost",user="root",password="Risa@1010",database="LMS")
-if mycon.is_connected()==False:
-    print("Not connected")
-mycur=mycon.cursor()
+from database import get_connection
 
 def new_account():
+    mycon, mycur = get_connection()
     mycur.execute("select * from student_info")
     data=mycur.fetchall()
     mycur.execute("select * from teacher_info")

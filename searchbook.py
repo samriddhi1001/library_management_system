@@ -1,11 +1,8 @@
-import mysql.connector as ctr
-mycon=ctr.connect(host="localhost",user="root",password="Risa@1010",database="lms")
-if mycon.is_connected()==False:
-    print("Not connected")
-mycur=mycon.cursor()
+from database import get_connection
 from prettytable import PrettyTable
 
 def searchbook():
+    mycon, mycur = get_connection()
     print(" SEARCH BOOK")
     print("\t1.Search Book by Book Name")
     print("\t2.Search Book by Author Name")
