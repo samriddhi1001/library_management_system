@@ -1,9 +1,4 @@
-import mysql.connector as ctr
-mycon=ctr.connect(host="localhost",user="root",password="Risa@1010",database="lms")
-if mycon.is_connected()==False:
-    print("Not connected")
-mycur=mycon.cursor()
-
+from database import get_connection
 from datetime import date
 
 def choice(n):
@@ -20,6 +15,7 @@ def choice(n):
     return(int(a))
             
 def returnbook():
+    mycon, mycur = get_connection()
     mycur.execute("select * from book_info")
     bdata=mycur.fetchall()
     mycur.execute("select * from student_info")

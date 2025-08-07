@@ -1,13 +1,8 @@
-import mysql.connector as ctr
-mycon=ctr.connect(host="localhost",user="root",password="Risa@1010",database="lms")
-if mycon.is_connected()==False:
-    print("Not connected")
-mycur=mycon.cursor()
-
-
+from database import get_connection
 from prettytable import PrettyTable
 
 def view():
+    mycon, mycur = get_connection()
     print(" VIEW ")
     print("\t1. View List of all books")
     print("\t2. View List of available books")
